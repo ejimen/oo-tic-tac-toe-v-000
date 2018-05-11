@@ -1,6 +1,6 @@
 class TicTacToe
 
-  
+
   def initialize(board = nil)
     @board = board || Array.new(9, " ")
   end
@@ -58,7 +58,7 @@ class TicTacToe
     end
     return cells_filled
   end
-  
+
 
   def current_player
     turns = turn_count()
