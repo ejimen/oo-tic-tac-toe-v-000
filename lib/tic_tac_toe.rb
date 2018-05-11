@@ -1,7 +1,10 @@
 class TicTacToe
+
+  
   def initialize(board = nil)
     @board = board || Array.new(9, " ")
   end
+
 
   def play
     while (over? != true && draw? != true) # Checks to see if the game is over
@@ -25,21 +28,26 @@ class TicTacToe
     puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
   end
 
+
   def input_to_index(user_input)
     user_input.to_i - 1
   end
+
 
   def move(index, player_mark)
     @board[index] = player_mark
   end
 
+
   def valid_move?(index)
     index.between?(0,8) && !position_taken?(index)
   end
 
+
   def position_taken?(index)
     !(@board[index] == " " || @board[index] == "")
   end
+
 
   def turn_count
     cells_filled = 0
@@ -50,12 +58,14 @@ class TicTacToe
     end
     return cells_filled
   end
+  
 
   def current_player
     turns = turn_count()
     player = turns % 2 == 0 ? "X" : "O"
     return player
   end
+
 
   def turn
     puts "Please enter 1-9:"
@@ -69,6 +79,7 @@ class TicTacToe
       turn()
     end
   end
+
 
   def won?
     WIN_COMBINATIONS.each do |win_combo|
@@ -91,11 +102,13 @@ class TicTacToe
     end
   end
 
+
   def full?
     @board.all? do |position|
       position == "X" || position == "O"
     end
   end
+
 
 def draw?
   if (won? == false && full? == true)
@@ -105,6 +118,7 @@ def draw?
   end
 end
 
+
 def over?
   if won? != false
     return true
@@ -112,6 +126,7 @@ def over?
     return true
   end
 end
+
 
 def winner
   if won?
